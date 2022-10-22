@@ -1,9 +1,23 @@
 import { CartDiv } from "./styles"
 
-const Cart = ({currentSale, filterCurrent}) => {
+const Cart = ({currentSale, setCurrentSale }) => {
     
     console.log(currentSale.length == 0)
     console.log(currentSale)
+
+    function filterCurrent(item) {    
+
+        if (item.count >= 2) {
+          item.count--
+          setCurrentSale([...currentSale])
+  
+        } else {      
+          const newCurrent = currentSale.filter(product => item !== product)
+          setCurrentSale(newCurrent) 
+  
+        }
+  
+      }
 
   return  currentSale.length !== 0 ? (
         <CartDiv>

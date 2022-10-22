@@ -22,19 +22,7 @@ function App() {
       
     }
 
-    function filterCurrent(item) {    
-
-      if (item.count >= 2) {
-        item.count--
-        setCurrentSale([...currentSale])
-
-      } else {      
-        const newCurrent = currentSale.filter(product => item !== product)
-        setCurrentSale(newCurrent) 
-
-      }
-
-    }
+    
     
     function handleClick(item){
       
@@ -58,7 +46,7 @@ function App() {
       <div className='App'>
         <div className='display'>
           <ProductsList handleClick={handleClick} products={products}/>
-          <Cart currentSale={currentSale} filterCurrent={filterCurrent}/>
+          <Cart currentSale={currentSale} setCurrentSale={setCurrentSale} />
         </div>
       </div>
     </>
